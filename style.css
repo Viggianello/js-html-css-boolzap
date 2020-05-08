@@ -48,7 +48,7 @@ i{
     height: 10%;
     border: 1px solid black;
 }
-/* qui non mi convince non risco a capire se ho sbagliato le misure o no e perche non prende lo sfondo bianco anche sotto */
+
 .chat{
     height: 90%;
     border: 1px solid black;
@@ -87,11 +87,16 @@ img{
     align-items: center;
 }
 
+.icone-container-right{
+    width: 35.5px;
+}
+
 .icone-container-left{
-    float: left;
+    float: left;/* l ho messo perche se no mi andava a capo l'icona di dx essendo i div elementi blocco?  */
     height: 100%;
     display: flex;
     align-items: center;
+    width: 31px;
 }
 
 .notifiche{
@@ -107,6 +112,16 @@ img{
 }
 
 .input-container input{
-    width: 100%;
-    height: 100%;
+    height: 96%;
+    width: 98%;
+    padding-left: 35px;
+}
+
+.footer-right input{
+    width: calc(100% - 66.5px);
+    height: 96%;
+}
+
+.position{
+    position: absolute;
 }
