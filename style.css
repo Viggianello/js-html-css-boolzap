@@ -43,8 +43,48 @@ body{
     height: 10%;
     border: 1px solid black;
 }
-
+/* qui non mi convince non risco a capire se ho sbagliato le misure o no e perche non prende lo sfondo bianco anche sotto */
 .chat{
+    height: 90%;
+    border: 1px solid black;
+}
+
+.right .chat{
     height: 80%;
     border: 1px solid black;
+}
+
+img{
+    border-radius: 50%;
+    padding: 4px;
+    height: 100%;
+}
+
+.riga{
+    width: 100%;
+    /* height: calc(100% / 9); */
+    height: 49.7px;
+    border: 1px solid black;
+}
+
+.left .liste-chat, .left .input-container, .footer-right{
+    background-color: white;
+}
+
+.icone-container{
+    float: right;
+    height: 100%;
+    width: 20%;
+    /* centrarla verticale */
+    position: relative;
+}
+
+.icone-container i{
+    /* position: absolute;
+    top: 40%; */
+    /* soluzione alternativa...impazzisco a colcolare a mano tutto... verdical aling funziona solo con le immagini? */
+    /* cosi mi vengono tutte una sopra le altre pero :() */
+    padding: 10px;
+    /*  pero cosi faccio fatica per il verticale e poi nel left me le mette una sotto l altra come mai? */
+    /*  troppi tentativi, molti casuali approccio sbagliato!? */
 }
