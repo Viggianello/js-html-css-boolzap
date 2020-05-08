@@ -5,9 +5,21 @@
     font-family: sans-serif;
 }
 
+body{
+    background-color: gray;
+    padding-bottom: 3vh;
+}
+
+.body-header{
+    background-color: darkgreen;
+    height: 20vh;
+    width: 100%;
+    padding-top: 3vh;
+}
+
 .container {
     width: 900px;
-    height: 100vh;
+    height: 94vh;
     margin: auto;
     background-color: lightgray;
 }
