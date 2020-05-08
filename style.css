@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container {
+    width: 900px;
+    height: 100vh;
+    margin: auto;
+    background-color: lightgray;
+}
+
+.left{
+    float: left;
+    height: 100%;
+    width: 35%;
+    border: 1px solid black;
+    border-right: 0;
+}
+
+.right{
+    float: left;
+    height: 100%;
+    width: 65%;
+    border: 1px solid black;
+}
