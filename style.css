@@ -24,6 +24,11 @@ body{
     background-color: lightgray;
 }
 
+i{
+    padding: 10px;
+}
+
+
 .left{
     float: left;
     height: 100%;
@@ -39,7 +44,7 @@ body{
     border: 1px solid black;
 }
 
-.header-left,.header-right, .notifiche, .footer-right{
+.header-left,.header-right, .notifiche, .footer-right,.input-container{
     height: 10%;
     border: 1px solid black;
 }
@@ -60,10 +65,14 @@ img{
     height: 100%;
 }
 
+.liste-chat{
+    height: 80%;
+}
+
 .riga{
     width: 100%;
-    /* height: calc(100% / 9); */
-    height: 49.7px;
+    height: calc(100% / 9);
+    /* height: 49.7px; */
     border: 1px solid black;
 }
 
@@ -71,20 +80,33 @@ img{
     background-color: white;
 }
 
-.icone-container{
+.icone-container,.icone-container-right{
     float: right;
     height: 100%;
-    width: 20%;
-    /* centrarla verticale */
-    position: relative;
+    display: flex;
+    align-items: center;
 }
 
-.icone-container i{
-    /* position: absolute;
-    top: 40%; */
-    /* soluzione alternativa...impazzisco a colcolare a mano tutto... verdical aling funziona solo con le immagini? */
-    /* cosi mi vengono tutte una sopra le altre pero :() */
-    padding: 10px;
-    /*  pero cosi faccio fatica per il verticale e poi nel left me le mette una sotto l altra come mai? */
-    /*  troppi tentativi, molti casuali approccio sbagliato!? */
+.icone-container-left{
+    float: left;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.notifiche{
+    padding: 5px;
+}
+
+.circle{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: white;
+    padding-top: 2px;
+}
+
+.input-container input{
+    width: 100%;
+    height: 100%;
 }
