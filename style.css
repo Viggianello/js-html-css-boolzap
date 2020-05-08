@@ -26,3 +26,13 @@
     width: 65%;
     border: 1px solid black;
 }
+
+.header-left,.header-right, .notifiche, .footer-right{
+    height: 10%;
+    border: 1px solid black;
+}
+
+.chat{
+    height: 80%;
+    border: 1px solid black;
+}
