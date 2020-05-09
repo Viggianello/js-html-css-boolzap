@@ -125,3 +125,18 @@ img{
 .position{
     position: absolute;
 }
+
+.riga p{
+    float:right;
+    padding-right: 135px;
+    padding-top: 25px;
+    font-size: 10px;
+    color: gray;
+}
+
+/* .liste-chat .orario{
+    float: right;
+    font-size: 10px;
+    color: gray;
+    padding-top: 20px;
+} */
