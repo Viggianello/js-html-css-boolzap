@@ -46,6 +46,7 @@ i{
 
 .header-left,.header-right, .notifiche, .footer-right,.input-container{
     height: 10%;
+    /* height: 9%; */
     border: 1px solid black;
 }
 
@@ -56,6 +57,7 @@ i{
 
 .right .chat{
     height: 80%;
+    /* height: 82%; */
     border: 1px solid black;
 }
 
@@ -63,10 +65,12 @@ img{
     border-radius: 50%;
     padding: 4px;
     height: 100%;
+    float: left;
 }
 
 .liste-chat{
     height: 80%;
+    /* height: 83%; */
 }
 
 .riga{
@@ -105,7 +109,9 @@ img{
 
 .circle{
     height: 40px;
+    /* height: 37px; */
     width: 40px;
+    /* width: 37px; */
     border-radius: 50%;
     background-color: white;
     padding-top: 2px;
@@ -132,6 +138,11 @@ img{
     padding-top: 25px;
     font-size: 10px;
     color: gray;
+}
+.riga h1{
+    position: absolute;
+    padding-left: 47px;
+    font-size: 15px;
 }
 
 /* .liste-chat .orario{
