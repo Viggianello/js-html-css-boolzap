@@ -5,4 +5,4 @@
 // metodo 2
 $('.riga').append('<p>Non poteva essere altrimenti</p>')
 
-// $('.riga').append('<h1>Michele</h1>')
+$('.riga').append('<span class="orario">17.55</span>')

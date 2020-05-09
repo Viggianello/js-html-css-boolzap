@@ -145,9 +145,10 @@ img{
     font-size: 15px;
 }
 
-/* .liste-chat .orario{
-    float: right;
+.liste-chat .orario{
+    position: absolute;
     font-size: 10px;
     color: gray;
-    padding-top: 20px;
-} */
+    padding-top: 13px;
+    left: 300px;
+}
