@@ -26,6 +26,7 @@ body{
 
 i{
     padding: 10px;
+    cursor: pointer;
 }
 
 
@@ -157,5 +158,25 @@ img{
     font-size: 10px;
     color: gray;
     padding-top: 13px;
-    left: 350px;
+    left: 575px;
+}
+
+h3{
+    float:left;
+    padding-top: 16px;
+}
+
+.messaggio{
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.messaggio.invitato{
+    background-color: lightgreen;
+    align-self: flex-end;
+}
+
+.template{
+    display: none;
 }
