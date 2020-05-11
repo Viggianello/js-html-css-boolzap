@@ -166,6 +166,11 @@ h3{
     padding-top: 16px;
 }
 
+.lista-messaggi{
+    display: flex;
+    padding: 10px;
+}
+
 .messaggio{
     background-color: white;
     padding: 15px;
