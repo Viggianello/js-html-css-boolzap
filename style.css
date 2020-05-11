@@ -65,6 +65,7 @@ i{
     background-image: url(img/sfondochat.jpg);
     background-repeat: repeat;
     background-size: cover;
+    overflow-y: scroll;
     /* height: 82%; */
     /* border: 1px solid black; */
 }
@@ -171,31 +172,36 @@ h3{
 }
 
 .lista-messaggi{
-    /* display: flex; */
-    /* quale delle due opzioni è meglio? */
     float: left;
-    padding: 10px;/*perche non mi distanzia i messaggi successivi?*/
-    /* flex-direction: column; */
+    width: 100%;
+    padding: 10px;
+
 }
+
+.nuovo-messaggio{
+    /* content: ""; */
+    /* display: table; */
+    clear: both;
+}
+
 
 .messaggio-inviato{
     background-color: lightgreen;
     /* align-self: flex-end; */
     padding: 15px;
     border-radius: 10px;
+    margin-bottom: 10px;
+    float:right;
 }
 
 .messaggio{
+    float:left;
     background-color: white;
     padding: 15px;
     border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .template{
     display: none;
-}
-
-.lista-messaggi ul{
-    /* max-width: 25%; */
-    /* padding-top:10px; */
 }
