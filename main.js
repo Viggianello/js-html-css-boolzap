@@ -62,10 +62,15 @@ $('#input-messaggi').keypress(function(event){
         var messaggio_utente = $('#input-messaggi').val();
         // stampo in console
         // console.log(messaggio_utente);
-        var ilMioNuovoMessaggio = $('.template .nuovo-messaggio').clone();
-        ilMioNuovoMessaggio.text(messaggio_utente);
-        $('.lista-messaggi').append(ilMioNuovoMessaggio);
-        $('#input-messaggi').val('');
-        $(this).attr('placeholder', 'Scrivi un messaggio');
+        if (messaggio_utente != ('')) {
+            var ilMioNuovoMessaggio = $('.template .nuovo-messaggio').clone();
+            ilMioNuovoMessaggio.text(messaggio_utente);
+            $('.lista-messaggi').append(ilMioNuovoMessaggio);
+            // resetto l'input
+            $('#input-messaggi').val('');
+            // rimetto il messaggio di default
+            $(this).attr('placeholder', 'Scrivi un messaggio');
+        }
+
     }
 });
