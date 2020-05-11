@@ -5,6 +5,10 @@
     font-family: sans-serif;
 }
 
+ul{
+    list-style-type: none;
+}
+
 body{
     background-color: gray;
     padding-bottom: 3vh;
@@ -167,8 +171,18 @@ h3{
 }
 
 .lista-messaggi{
-    display: flex;
-    padding: 10px;
+    /* display: flex; */
+    /* quale delle due opzioni è meglio? */
+    float: left;
+    padding: 10px;/*perche non mi distanzia i messaggi successivi?*/
+    /* flex-direction: column; */
+}
+
+.messaggio-inviato{
+    background-color: lightgreen;
+    /* align-self: flex-end; */
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .messaggio{
@@ -177,11 +191,11 @@ h3{
     border-radius: 10px;
 }
 
-.messaggio.invitato{
-    background-color: lightgreen;
-    align-self: flex-end;
-}
-
 .template{
     display: none;
+}
+
+.lista-messaggi ul{
+    /* max-width: 25%; */
+    /* padding-top:10px; */
 }
