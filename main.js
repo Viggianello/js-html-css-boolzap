@@ -70,7 +70,15 @@ $('#input-messaggi').keypress(function(event){
             $('#input-messaggi').val('');
             // rimetto il messaggio di default
             $(this).attr('placeholder', 'Scrivi un messaggio');
+            // metto un messaggio di risposta ok ad ogni messaggio dell'utente
+            var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
+            // pcmessaggio.setTimeout(appare, 10000);
+            // window.setTimeout("funzione()", tempo_in_ms);
+            // var myVar = setInterval(pcmessaggio, 1000);
+            // function myTimer() {
+            //   var d = new Date();
+            //  var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
+            // }
         }
-
     }
 });
