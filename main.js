@@ -56,12 +56,14 @@ $('.riga').append('<span class="orario">17.55</span>')
 // se uso il tasto invio quando sono sull input messaggi
 $('#input-messaggi').keypress(function(event){
     var keycode = (event.keyCode ? event.keyCode : event.which);
+    // codice tasto invio
     if(keycode == '13'){
         // alert('You pressed a "enter" key in somewhere');
         // leggo il valore destritto inserito nel input
         var messaggio_utente = $('#input-messaggi').val();
         // stampo in console
         // console.log(messaggio_utente);
+        // verifico che il mesaggio non sia vuoto
         if (messaggio_utente != ('')) {
             var ilMioNuovoMessaggio = $('.template .nuovo-messaggio').clone();
             ilMioNuovoMessaggio.text(messaggio_utente);
@@ -71,7 +73,8 @@ $('#input-messaggi').keypress(function(event){
             // rimetto il messaggio di default
             $(this).attr('placeholder', 'Scrivi un messaggio');
             // metto un messaggio di risposta ok ad ogni messaggio dell'utente
-            var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
+            // var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
+            setTimeout(function(){ var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>'); }, 1000);
             // pcmessaggio.setTimeout(appare, 10000);
             // window.setTimeout("funzione()", tempo_in_ms);
             // var myVar = setInterval(pcmessaggio, 1000);
