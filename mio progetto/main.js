@@ -65,16 +65,17 @@ $('#input-messaggi').keypress(function(event){
         // console.log(messaggio_utente);
         // verifico che il mesaggio non sia vuoto
         if (messaggio_utente != ('')) {
-            var ilMioNuovoMessaggio = $('.template .nuovo-messaggio').clone();
-            ilMioNuovoMessaggio.text(messaggio_utente);
+            var ilMioNuovoMessaggio = $('.contenitore-messaggio').clone();
+            ilMioNuovoMessaggio.find('li').text(messaggio_utente);
             $('.lista-messaggi').append(ilMioNuovoMessaggio);
             // resetto l'input
             $('#input-messaggi').val('');
             // rimetto il messaggio di default
             $(this).attr('placeholder', 'Scrivi un messaggio');
-            // metto un messaggio di risposta ok ad ogni messaggio dell'utente
             // var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
-            setTimeout(function(){ var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>'); }, 1000);
+            setTimeout(function(){
+                // metto un messaggio di risposta ok ad ogni messaggio dell'utente ceh apparirà dopo un secondo
+                var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>'); }, 1000);
             // pcmessaggio.setTimeout(appare, 10000);
             // window.setTimeout("funzione()", tempo_in_ms);
             // var myVar = setInterval(pcmessaggio, 1000);
