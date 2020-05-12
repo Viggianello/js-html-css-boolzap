@@ -9,6 +9,12 @@ ul{
     list-style-type: none;
 }
 
+
+.template{
+    display: none;
+}
+
+
 body{
     background-color: gray;
     padding-bottom: 3vh;
@@ -48,6 +54,8 @@ i{
     width: 65%;
     /* border: 1px solid black; */
 }
+
+/* fine regole generali */
 
 .header-left,.header-right, .notifiche, .footer-right,.input-container{
     height: 10%;
@@ -163,7 +171,7 @@ img{
     font-size: 10px;
     color: gray;
     padding-top: 13px;
-    left: 575px;
+    /* left: 575px; */
 }
 
 h3{
@@ -192,6 +200,7 @@ h3{
     border-radius: 10px;
     margin-bottom: 10px;
     float:right;
+    clear:both; /*per farli andare a capo e non tutti in riga */
 }
 
 .messaggio-ricevuto{
@@ -202,6 +211,7 @@ h3{
     margin-bottom: 10px;
 }
 
-.template{
-    display: none;
+.orario-mes-inviati{
+    font-size: 10px;
+    color: gray;
 }

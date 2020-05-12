@@ -65,7 +65,7 @@ $('#input-messaggi').keypress(function(event){
         // console.log(messaggio_utente);
         // verifico che il mesaggio non sia vuoto
         if (messaggio_utente != ('')) {
-            var ilMioNuovoMessaggio = $('.contenitore-messaggio').clone();
+            var ilMioNuovoMessaggio = $('.template .messaggio-inviato').clone();
             ilMioNuovoMessaggio.find('li').text(messaggio_utente);
             $('.lista-messaggi').append(ilMioNuovoMessaggio);
             // resetto l'input
