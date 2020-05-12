@@ -91,25 +91,31 @@ $('.left .input-container').keypress(function(event){
     var keycode = (event.keyCode ? event.keyCode : event.which);
     // codice tasto invio
     if(keycode == '13'){
-        var testo_utente = $('.left .input-container input').val();
+        // recupero il testo dell utente e tiro via gli spazi inutili e lo rendo tutto minuscolo per un confronto ,indipendentemente dal fatto che sia maiuscolo e minuscolo, delle sole lettere
+        var testo_utente = $('.left .input-container input').val().trim().toLowerCase();
         // stampo ciò che leggo--> ma xke mi stampa vuoto?
-        console.log(testo_utente);
+        console.log('testo utente:' + testo_utente);
         // all interno di liste-chat prendo ogni h1
-        $('.liste-chat h1').each(function() {
-        // recupero il testo di questo h1
-        var testo_h1 = $(this).text();
+        $('.liste-chat .riga').each(function() {
+        // recupero il testo di questo h1 e lo rendo tuto minuscolo
+        var testo_h1 = $(this).find('h1').text().toLowerCase();
         // stampo il testo di ogni h1
-        console.log(testo_h1);
+        console.log('testo h1:' + testo_h1);
         // verifico se è uguale a quello inserito
         if (testo_h1 == testo_utente) {
-            // allora mostro solo lui
+            // allora mostro solo lui(h1)
             $(this).show();
             // stampo il testo inserito dall'utente se uguale ad uno dei testi presenti negli h1
-            console.log(testo_utente);
+            console.log('perfetto match:' + testo_utente);
+
         }
         else {
-            // allora nascondo il resto
+            // allora nascondo il resto (degli h1)
             $(this).hide();
+        }
+
+        if (true) {
+
         }
     })// chiudo l'each
     }   // chiudo l if del 13
