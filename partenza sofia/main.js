@@ -44,8 +44,8 @@ function invia_messaggio() {
         // resetto l'input
         $('.new-message-inputs').val('');
         // ad ogni messaggio dell utente ricevera un ok come risposta che apparirà tra un secondo
-        setTimeout(function(){
+        // setTimeout(function(){
             // metto un messaggio di risposta ok ad ogni messaggio dell'utente
-            var pcmessaggio = $('.right-messages-container').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>'); }, 1000);
+            // var pcmessaggio = $('.right-messages-container').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>'); }, 1000);
     }
 }
