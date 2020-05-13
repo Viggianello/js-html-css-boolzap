@@ -200,9 +200,12 @@ h3{
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 10px;
+    min-width: 150px;
+    min-height: 15px;
     float:right;
     clear:both; /*per farli andare a capo e non tutti in riga */
     cursor: pointer;
+    position: relative;
 }
 
 .messaggio-ricevuto{
@@ -217,6 +220,11 @@ h3{
 .orario-mes-inviati{
     font-size: 10px;
     color: gray;
+    position:absolute;
+    right: 8px;
+}
+.message-info{
+    padding-bottom:5px;
 }
 
 .lista-messaggi{
@@ -235,11 +243,11 @@ h3{
 
 .message-options-panel {
 	display: none;
-	/* position: absolute; */
-	/* bottom: -75px; */
-	/* width: 150px; */
+	position: absolute;
+	width: 170px;
+    padding: 10px;
 	/* height: 80px; */
 	background: white;
 	box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
-    /* right: 0; */
+    right: 40px;
 }
