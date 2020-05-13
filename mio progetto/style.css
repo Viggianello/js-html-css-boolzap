@@ -202,6 +202,7 @@ h3{
     margin-bottom: 10px;
     float:right;
     clear:both; /*per farli andare a capo e non tutti in riga */
+    cursor: pointer;
 }
 
 .messaggio-ricevuto{
@@ -234,11 +235,11 @@ h3{
 
 .message-options-panel {
 	display: none;
-	position: absolute;
-	bottom: -75px;
-	width: 150px;
-	height: 80px;
+	/* position: absolute; */
+	/* bottom: -75px; */
+	/* width: 150px; */
+	/* height: 80px; */
 	background: white;
 	box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
-    right: 0;
+    /* right: 0; */
 }

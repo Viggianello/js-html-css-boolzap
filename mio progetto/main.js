@@ -124,8 +124,14 @@ console.log(nome_chat);
 $('.lista-messaggi[data-chat-name="' + nome_chat + '"]').addClass('active');
 });
 
-// se clicco sull messaggio che ho inviato mi apre il dropdown dei messaggio
+// se clicco sull messaggio che ho inviato mi apre il suo dropdown
 $('.messaggio-inviato').click(function() {
 alert('ciao');// non funziona l alert
-});
-//
+// do la classe active al dropdown ,in modo da vederlo, o levo la tale classe se l ha gia in modo da nasconderlo
+$(this).find('.message-options-panel').toggleClass('active');
+// se clicco su messagge-destroy cancello il messaggio_utente
+$(this).find('.message-destroy').click(function() {
+// nascondo il messaggio sul display anche se cosi rimarrebbe nel html
+$(this).hide();
+});//chiusura click per cancellare il messaggio
+});//chiusura click per aprire il dropdown
