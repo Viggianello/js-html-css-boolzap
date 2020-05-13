@@ -6,11 +6,6 @@
 $('.riga').append('<p>Non poteva essere altrimenti</p>')
 
 $('.riga').append('<span class="orario">17.55</span>')
-// controllo se il pulsante invio e stato cliccato
-// if (PremoPulsanteInvio()) {
-//     var messaggio_utente = $('#input-messaggi').val();
-//     console.log(messaggio_utente);
-// }
 // var ok = false;
 // Intercetto il clicco sul microfono
 // $('.icone-container-right').click(function() {
@@ -34,7 +29,6 @@ $('.riga').append('<span class="orario">17.55</span>')
 
 // inposto un controllo per l'input
 // var controllo_testo_default = true;
-
 // Creo una funzione al click dell'input
 // $('#input-messaggi').click(function() {
     // entra se è il un click dispari sul input
@@ -45,7 +39,6 @@ $('.riga').append('<span class="orario">17.55</span>')
         // controllo_testo_default = false;
     // }
     // else {
-
         // il click sul punsante è pari dunque ristabilisco il messaggio di default
         // var testo_default = $(this).attr('placeholder', 'Scrivi un messaggio');
         // inposto il controllo a true cosi poi posso levare ancora il messaggio di default ad un click dispari
@@ -74,31 +67,27 @@ $('#input-messaggi').keypress(function(event){
             $(this).attr('placeholder', 'Scrivi un messaggio');
             // var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
             setTimeout(function(){
-                // metto un messaggio di risposta ok ad ogni messaggio dell'utente ceh apparirà dopo un secondo
-                var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>'); }, 1000);
-            // pcmessaggio.setTimeout(appare, 10000);
-            // window.setTimeout("funzione()", tempo_in_ms);
-            // var myVar = setInterval(pcmessaggio, 1000);
-            // function myTimer() {
-            //   var d = new Date();
-            //  var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
-            // }
-        }
-    }
-});
-// controllo l input a sx al suo invio
+            // metto un messaggio di risposta ok ad ogni messaggio dell'utente che apparirà dopo un secondo
+            var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>'); }, 1000);
+            // pcmessaggio.setTimeout("funzione()", tempo_in_ms);
+        }// chiudo l'if controllo input diverso da stringa vuota
+    }// chiudo l'if controllo input inserito da tastiera tasto 13 ossia invio
+});// chiudo il keypress dell'input
+
+// controllo l input a sx a ogni tasto digitato tranne canc e back-space
 $('.left .input-container').keyup(function(event){
     // var keycode = (event.keyCode ? event.keyCode : event.which);
     // codice tasto invio
     // if(keycode == '13'){
         // recupero il testo dell utente e tiro via gli spazi inutili e lo rendo tutto minuscolo per un confronto ,indipendentemente dal fatto che sia maiuscolo e minuscolo, delle sole lettere
         var testo_utente = $('.left .input-container input').val().trim().toLowerCase();
-        // stampo ciò che leggo--> ma xke mi stampa vuoto?
+        // stampo ciò che leggo
         console.log('testo utente:' + testo_utente);
-        // all interno di liste-chat prendo ogni h1
+        // controllo che l'utente non ha digitato nulla(ha riempito l'input)
         if (testo_utente != '') {
+            // all interno di liste-chat prendo ogni h1
             $('.liste-chat .riga').each(function() {
-            // recupero il testo di questo h1 e lo rendo tuto minuscolo
+            // recupero il testo di questo h1 e lo rendo tutto minuscolo
             var testo_h1 = $(this).find('h1').text().trim().toLowerCase();
             // stampo il testo di ogni h1
             console.log('testo h1:' + testo_h1);
@@ -106,19 +95,18 @@ $('.left .input-container').keyup(function(event){
             if (testo_h1.includes(testo_utente)) {
                 // allora mostro solo lui(h1)
                 $(this).show();
-                // stampo il testo inserito dall'utente se uguale ad uno dei testi presenti negli h1
+                // stampo il testo inserito dall'utente se  è contenuto id uno dei testi presenti negli h1
                 console.log('perfetto match:' + testo_utente);
 
             }
             else {
-                // allora nascondo il resto (degli h1)
+                // allora nascondo il resto delle .riga
                 $(this).hide();
             }
-        })// chiudo l'each
-        }
-        else {
+            })// chiudo l'each
+        }// chiudo l'if controllo input diverso da stringa vuota
+        else {// allora l'input è vuoto e rimostro il resto delle .riga
             $('.riga').show();
         }
-
-    // }   // chiudo l if del 13
-});// chiudo il keypress
+    // }   // chiudo l'if del 13
+});// chiudo il keyup
