@@ -60,7 +60,8 @@ $('#input-messaggi').keypress(function(event){
         if (messaggio_utente != ('')) {
             var ilMioNuovoMessaggio = $('.template .messaggio-inviato').clone();
             ilMioNuovoMessaggio.find('li').text(messaggio_utente);
-            $('.lista-messaggi').append(ilMioNuovoMessaggio);
+            // metto il selettore con l active se no mi mette il messaggio su tutte le chat anche quelle a cui non starei mandando un messaggio
+            $('.lista-messaggi.active').append(ilMioNuovoMessaggio);
             // resetto l'input
             $('#input-messaggi').val('');
             // rimetto il messaggio di default
@@ -68,7 +69,7 @@ $('#input-messaggi').keypress(function(event){
             // var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
             setTimeout(function(){
             // metto un messaggio di risposta ok ad ogni messaggio dell'utente che apparirà dopo un secondo
-            var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>'); }, 1000);
+            var pcmessaggio = $('.lista-messaggi.active').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>'); }, 1000);
             // pcmessaggio.setTimeout("funzione()", tempo_in_ms);
         }// chiudo l'if controllo input diverso da stringa vuota
     }// chiudo l'if controllo input inserito da tastiera tasto 13 ossia invio
@@ -112,6 +113,13 @@ $('.left .input-container').keyup(function(event){
 });// chiudo il keyup
 
 // intercetto il click sulle righe della chat di sx per associare la chat a dx
-$('riga').click(function() {
-
-})
+$('.riga').click(function() {
+// tolgo la classe active a qualsiasi lista messaggi
+$('.lista-messaggi').removeClass('active');
+// recupero il nome della chat dalla riga su cui ho cliccato ossia il testo del suo h1 relativo
+var nome_chat = $(this).find('h1').text();
+// stampo il testo nel h1 della riga cliccata
+console.log(nome_chat);
+// recupero la chat,ossia lista messaggi, relativa a tale riga cliccata
+$('.lista-messaggi[data-chat-name="' + nome_chat + '"]').addClass('active');
+});

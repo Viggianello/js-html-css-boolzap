@@ -93,6 +93,7 @@ img{
 .riga{
     width: 100%;
     height: calc(100% / 9);
+    cursor: pointer;
     /* height: 49.7px; */
     /* border: 1px solid black; */
 }
