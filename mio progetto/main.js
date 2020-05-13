@@ -123,3 +123,9 @@ console.log(nome_chat);
 // recupero la chat,ossia lista messaggi, relativa a tale riga cliccata
 $('.lista-messaggi[data-chat-name="' + nome_chat + '"]').addClass('active');
 });
+
+// se clicco sull messaggio che ho inviato mi apre il dropdown dei messaggio
+$('.messaggio-inviato').click(function() {
+alert('ciao');// non funziona l alert
+});
+//

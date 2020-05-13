@@ -222,6 +222,23 @@ h3{
     display: none;
 }
 
-.lista-messaggi.active{
+.lista-messaggi.active, .message-options-panel.active{
     display: block;
+}
+
+.message-options {
+	display: none;
+	color: #B6B9BB;
+	cursor: pointer;
+}
+
+.message-options-panel {
+	display: none;
+	position: absolute;
+	bottom: -75px;
+	width: 150px;
+	height: 80px;
+	background: white;
+	box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
+    right: 0;
 }
