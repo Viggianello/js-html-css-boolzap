@@ -134,6 +134,8 @@ $(this).find('.message-options-panel').toggleClass('active');
 // se clicco su messagge-destroy cancello il messaggio_utente
 $(this).find('.message-destroy').click(function() {
 // nascondo il messaggio sul display anche se cosi rimarrebbe nel html
-$(nuovomessaggio).hide();
+// $(nuovomessaggio).hide();
+// rimuove il messaggio
+$(nuovomessaggio).remove();
 });//chiusura click per cancellare il messaggio
 });//chiusura click per aprire il dropdown
