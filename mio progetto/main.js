@@ -74,7 +74,7 @@ $('#input-messaggi').keypress(function(event){
     }// chiudo l'if controllo input inserito da tastiera tasto 13 ossia invio
 });// chiudo il keypress dell'input
 
-// controllo l input a sx a ogni tasto digitato tranne canc e back-space
+// controllo l'input a sx a ogni tasto digitato (tranne canc e back-space se usassi keypress)
 $('.left .input-container').keyup(function(event){
     // var keycode = (event.keyCode ? event.keyCode : event.which);
     // codice tasto invio
@@ -105,8 +105,13 @@ $('.left .input-container').keyup(function(event){
             }
             })// chiudo l'each
         }// chiudo l'if controllo input diverso da stringa vuota
-        else {// allora l'input è vuoto e rimostro il resto delle .riga
+        else {// allora l'input è vuoto e rimostro tutte le .riga
             $('.riga').show();
         }
     // }   // chiudo l'if del 13
 });// chiudo il keyup
+
+// intercetto il click sulle righe della chat di sx per associare la chat a dx
+$('riga').click(function() {
+
+})

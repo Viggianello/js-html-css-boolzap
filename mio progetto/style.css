@@ -216,3 +216,11 @@ h3{
     font-size: 10px;
     color: gray;
 }
+
+.lista-messaggi{
+    display: none;
+}
+
+.lista-messaggi.active{
+    display: block;
+}
