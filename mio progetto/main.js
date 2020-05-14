@@ -9,17 +9,17 @@ $('.riga').append('<span class="orario">17.55</span>')
 // var ok = false;
 // Intercetto il clicco sul microfono
 // $('.icone-container-right').click(function() {
-    // leggo il valore destritto inserito nel input
-    // var messaggio_utente = $('#input-messaggi').val();
-    // stampo in console
-    // console.log(messaggio_utente);
-    // var ilMioNuovoMessaggio = $('.template .nuovo-messaggio').clone();
-    // ilMioNuovoMessaggio.text(messaggio_utente);
-    // $('.lista-messaggi').append(ilMioNuovoMessaggio);
-    // $('#input-messaggi').val('');
-    // $(this).attr('placeholder', 'Scrivi un messaggio');
-    // ok = true;
-    // var testo_default = $('#input-messaggi').attr('placeholder', 'Scrivi un messaggio');
+//     // leggo il valore destritto inserito nel input
+//     var messaggio_utente = $('#input-messaggi').val();
+//     // stampo in console
+//     console.log(messaggio_utente);
+//     var ilMioNuovoMessaggio = $('.template .nuovo-messaggio').clone().addClass('inviato');
+//     ilMioNuovoMessaggio.text(messaggio_utente);
+//     $('.lista-messaggi').append(ilMioNuovoMessaggio);
+//     $('#input-messaggi').val('');
+//     $(this).attr('placeholder', 'Scrivi un messaggio');
+//     ok = true;
+//     var testo_default = $('#input-messaggi').attr('placeholder', 'Scrivi un messaggio');
 // });
 
 // if (ok) {
@@ -68,17 +68,65 @@ $('#input-messaggi').keypress(function(event){
             $(this).attr('placeholder', 'Scrivi un messaggio');
             // var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
             setTimeout(function(){
-            // metto un messaggio di risposta ok ad ogni messaggio dell'utente che apparirà dopo un secondo
-            // copio il template e gli aggiungo la classe ricevuto per farlo bianco e a sx
-            var pcmessaggio = $('.template .messaggio').clone().addClass('ricevuto');
-            // cambio il suo testo
-            pcmessaggio.find('li.nuovo-messaggio').replaceWith('<li class="nuovo-messaggio">' + 'ok' + '</li>');
-            // lo metto in pagina
-            $('.lista-messaggi.active').append(pcmessaggio)}, 1000);
-            // pcmessaggio.setTimeout("funzione()", tempo_in_ms);
+                // metto un messaggio di risposta ok ad ogni messaggio dell'utente che apparirà dopo un secondo
+                // copio il template e gli aggiungo la classe ricevuto per farlo bianco e a sx
+                var pcmessaggio = $('.template .messaggio').clone().addClass('ricevuto');
+                // cambio il suo testo
+                pcmessaggio.find('li.nuovo-messaggio').replaceWith('<li class="nuovo-messaggio">' + 'ok' + '</li>');
+                // lo metto in pagina
+                $('.lista-messaggi.active').append(pcmessaggio)
+            }, 1000);
         }// chiudo l'if controllo input diverso da stringa vuota
     }// chiudo l'if controllo input inserito da tastiera tasto 13 ossia invio
 });// chiudo il keypress dell'input
+
+$(document).on('click','.icone-container-right',  function() {
+    console.log('funziona');
+// leggo il valore destritto inserito nel input
+var messaggio_utente = $('#input-messaggi').val();
+// stampo in console
+// console.log(messaggio_utente);
+// verifico che il mesaggio non sia vuoto
+if (messaggio_utente != ('')) {
+    var ilMioNuovoMessaggio = $('.template .messaggio').clone().addClass('inviato');
+    ilMioNuovoMessaggio.find('li').text(messaggio_utente);
+    // metto il selettore con l active se no mi mette il messaggio su tutte le chat anche quelle a cui non starei mandando un messaggio
+    $('.lista-messaggi.active').append(ilMioNuovoMessaggio);
+    // resetto l'input
+    $('#input-messaggi').val('');
+    // rimetto il messaggio di default
+    $(this).attr('placeholder', 'Scrivi un messaggio');
+    // var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
+    setTimeout(function(){
+    // metto un messaggio di risposta ok ad ogni messaggio dell'utente che apparirà dopo un secondo
+    // copio il template e gli aggiungo la classe ricevuto per farlo bianco e a sx
+    var pcmessaggio = $('.template .messaggio').clone().addClass('ricevuto');
+    // cambio il suo testo
+    pcmessaggio.find('li.nuovo-messaggio').replaceWith('<li class="nuovo-messaggio">' + 'ok' + '</li>');
+    // lo metto in pagina
+    $('.lista-messaggi.active').append(pcmessaggio)}, 1000);
+}// chiusura if stringa vuota
+}// chiusura funzione del click
+);// chiusura click
+// intercetto il focus nell'input del messaggio
+$('#input-messaggi').focus(function() {
+    // verifico che il focus funzioni
+    console.log('il focus funziona');
+    // tolgo la classe "fa-microphone" dall'icona di destra
+    // aggiungo la classe "fa-paper-plane"
+    $('.icone-container-right i').removeClass('fa-microphone').addClass('fa-paper-plane');
+    // posso usare toggleClass per aggiungere e togliere le classi in modo compatto
+    // $('.icone-container-right i').toggleClass('fa-microphone fa-paper-plane');
+});
+
+$('#input-messaggi').blur(function() {
+    // tolgo la classe "fa-microphone" dall'icona di destra
+    // aggiungo la classe "fa-paper-plane"
+    // $('.right-footer-icon i').removeClass('fa-microphone').addClass('fa-paper-plane');
+    // posso usare toggleClass per aggiungere e togliere le classi in modo compatto
+    $('.icone-container-right i').removeClass('fa-paper-plane');
+    $('.icone-container-right i').addClass('fa-microphone');
+});
 
 // controllo l'input a sx a ogni tasto digitato (tranne canc e back-space se usassi keypress)
 $('.left .input-container').keyup(function(event){
