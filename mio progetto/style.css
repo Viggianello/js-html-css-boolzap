@@ -58,6 +58,7 @@ i{
 /* fine regole generali */
 
 .header-left,.header-right, .notifiche, .footer-right,.input-container{
+    position: relative;
     height: 10%;
     /* height: 9%; */
     /* border: 1px solid black; */
@@ -175,10 +176,18 @@ img{
     font-size: 10px;
     color: gray;
 }
+
 .riga h1{
     position: absolute;
     padding-left: 47px;
     font-size: 15px;
+}
+
+.header-left h1{
+    position: absolute;
+    font-size: 30px;
+    left: 70px;
+    bottom: 15px;
 }
 
 .liste-chat .orario{
