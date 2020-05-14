@@ -91,6 +91,7 @@ img{
 }
 
 .riga{
+    position: relative;
     width: 100%;
     height: calc(100% / 9);
     cursor: pointer;
@@ -172,7 +173,7 @@ img{
     font-size: 10px;
     color: gray;
     padding-top: 13px;
-    /* left: 575px; */
+    left: 275px;
 }
 
 h3{
@@ -192,7 +193,6 @@ h3{
     /* display: table; */
     clear: both;
 }
-
 
 .messaggio.inviato{
     background-color: lightgreen;
@@ -219,6 +219,11 @@ h3{
     border-radius: 10px;
     margin-bottom: 10px;
     clear:both; /*per farli andare a capo e non tutti in riga */
+    position: relative;
+    /* per limitare il messaggio al massimo della grandezza della chat per poi andare a capo */
+    max-width: 90%;
+    /* per farlo andare a capo */
+    overflow-wrap: anywhere;
 }
 
 .orario-mes-inviati{
@@ -255,4 +260,9 @@ h3{
     border: 1px solid gray;
 	box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
     right: 40px;
+}
+
+.ricevuto .message-options-panel{
+    left: 40px;
+    top: 45px;
 }

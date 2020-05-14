@@ -69,8 +69,12 @@ $('#input-messaggi').keypress(function(event){
             // var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
             setTimeout(function(){
             // metto un messaggio di risposta ok ad ogni messaggio dell'utente che apparirà dopo un secondo
+            // copio il template e gli aggiungo la classe ricevuto per farlo bianco e a sx
             var pcmessaggio = $('.template .messaggio').clone().addClass('ricevuto');
-            $('.lista-messaggi.active').append(pcmessaggio).find('li nuovo-messaggio').text('ok'); }, 1000);
+            // cambio il suo testo
+            pcmessaggio.find('li .nuovo-messaggio').replaceWith('<li class="nuovo-messaggio">' + 'ok' + '</li>');
+            // lo metto in pagina
+            $('.lista-messaggi.active').append(pcmessaggio)}, 1000);
             // pcmessaggio.setTimeout("funzione()", tempo_in_ms);
         }// chiudo l'if controllo input diverso da stringa vuota
     }// chiudo l'if controllo input inserito da tastiera tasto 13 ossia invio
@@ -139,10 +143,10 @@ $('.header-right').prepend(immagine_profilo).addClass('active');
 });
 
 
-// se clicco sull messaggio che ho inviato mi apre il suo dropdown
+// se clicco sull messaggio che ho inviato o su quello generato dal pc mi apre il suo dropdown
 $('.chat').on('click','.messaggio',function() {
 // alert('ciao');// non funziona l alert
-// inisializzo il nuovo messaggio in una variabile che mi servirà per cancellarlo
+// inizializzo il nuovo messaggio in una variabile che mi servirà per cancellarlo
 var nuovomessaggio = $(this);
 // do la classe active al dropdown ,in modo da vederlo, o levo la tale classe se l ha gia in modo da nasconderlo
 $(this).find('.message-options-panel').toggleClass('active');
