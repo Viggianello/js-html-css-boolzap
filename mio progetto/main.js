@@ -102,7 +102,7 @@ $('.left .input-container').keyup(function(event){
                 // allora mostro solo lui(h1)
                 $(this).show();
                 // stampo il testo inserito dall'utente se  è contenuto id uno dei testi presenti negli h1
-                console.log('perfetto match:' + testo_utente);
+                console.log('la digitazione inserita è inclusa nel nome sopra:' + testo_utente);
 
             }
             else {

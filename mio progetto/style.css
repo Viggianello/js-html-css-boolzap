@@ -155,6 +155,19 @@ img{
     position: absolute;
 }
 
+.notifiche .circle, .notifiche h1, .notifiche a{
+    float: left;
+}
+
+.notifiche h1{
+    font-size: 15px;
+    padding-left: 4px;
+}
+
+.notifiche a{
+    padding-left: 4px;
+}
+
 .riga p{
     float:right;
     padding-right: 138px;
