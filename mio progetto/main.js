@@ -121,8 +121,6 @@ $('.left .input-container').keyup(function(event){
 $('.riga').click(function() {
 // tolgo la classe active a qualsiasi lista messaggi
 $('.lista-messaggi').removeClass('active');
-// tolgo la classe active a qualsiasi header-right messaggi
-$('.header-right').removeClass('active');
 // recupero il nome della chat dalla riga su cui ho cliccato ossia il testo del suo h1 relativo
 var nome_chat = $(this).find('h1').text();
 // stampo il testo nel h1 della riga cliccata
@@ -139,7 +137,7 @@ var titolovecchio = $('.header-right').find('h3').text(nome_chat);
 // cancello tale immagine
 immaginevecchia.remove();
 // inserisco quella nuova in base alla riga cliccata
-$('.header-right').prepend(immagine_profilo).addClass('active');
+$('.header-right').prepend(immagine_profilo);
 });
 
 
