@@ -134,7 +134,7 @@ var titolovecchio = $('.header-right').find('h3').text(nome_chat);
 // cancello tale immagine
 immaginevecchia.remove();
 // inserisco quella nuova in base alla riga cliccata
-$('.header-right').append(immagine_profilo).addClass('active');
+$('.header-right').prepend(immagine_profilo).addClass('active');
 });
 
 
