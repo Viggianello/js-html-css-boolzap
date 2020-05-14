@@ -72,7 +72,7 @@ $('#input-messaggi').keypress(function(event){
             // copio il template e gli aggiungo la classe ricevuto per farlo bianco e a sx
             var pcmessaggio = $('.template .messaggio').clone().addClass('ricevuto');
             // cambio il suo testo
-            pcmessaggio.find('li .nuovo-messaggio').replaceWith('<li class="nuovo-messaggio">' + 'ok' + '</li>');
+            pcmessaggio.find('li.nuovo-messaggio').replaceWith('<li class="nuovo-messaggio">' + 'ok' + '</li>');
             // lo metto in pagina
             $('.lista-messaggi.active').append(pcmessaggio)}, 1000);
             // pcmessaggio.setTimeout("funzione()", tempo_in_ms);
