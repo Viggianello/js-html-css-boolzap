@@ -237,11 +237,11 @@ h3{
     padding-bottom:5px;
 }
 
-.lista-messaggi, .header-right{
+.lista-messaggi{
     display: none;
 }
 
-.lista-messaggi.active, .message-options-panel.active, .header-right.active{
+.lista-messaggi.active, .message-options-panel.active{
     display: block;
 }
 
@@ -264,6 +264,7 @@ h3{
     cursor: pointer;
 }
 
+/* allineo il dropdown dei messaggi ricevuti(per ora l'ok del pc) */
 .ricevuto .message-options-panel{
     left: 40px;
     top: 45px;
