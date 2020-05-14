@@ -206,6 +206,10 @@ h3{
     clear:both; /*per farli andare a capo e non tutti in riga */
     cursor: pointer;
     position: relative;
+    /* per limitare il messaggio al massimo della grandezza della chat per poi andare a capo */
+    max-width: 90%;
+    /* per farlo andare a capo */
+    overflow-wrap: anywhere;
 }
 
 .messaggio-ricevuto{
