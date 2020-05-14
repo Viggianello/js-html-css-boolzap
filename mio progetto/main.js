@@ -158,3 +158,8 @@ $(this).find('.message-destroy').click(function() {
 $(nuovomessaggio).remove();
 });//chiusura click per cancellare il messaggio
 });//chiusura click per aprire il dropdown
+
+// se esco col mouse dal dropdown, dopo esserci entrato, mi chiude il suddetto
+$('.chat').on('mouseleave','.message-options-panel',function() {
+  $( this ).removeClass('active');
+});

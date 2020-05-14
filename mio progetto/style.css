@@ -219,6 +219,7 @@ h3{
     border-radius: 10px;
     margin-bottom: 10px;
     clear:both; /*per farli andare a capo e non tutti in riga */
+    cursor: pointer;
     position: relative;
     /* per limitare il messaggio al massimo della grandezza della chat per poi andare a capo */
     max-width: 90%;
@@ -260,6 +261,7 @@ h3{
     border: 1px solid gray;
 	box-shadow: 0px 0px 40px -15px rgba(0,0,0,0.75);
     right: 40px;
+    cursor: pointer;
 }
 
 .ricevuto .message-options-panel{
