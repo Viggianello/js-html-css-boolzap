@@ -116,13 +116,27 @@ $('.left .input-container').keyup(function(event){
 $('.riga').click(function() {
 // tolgo la classe active a qualsiasi lista messaggi
 $('.lista-messaggi').removeClass('active');
+// tolgo la classe active a qualsiasi header-right messaggi
+$('.header-right').removeClass('active');
 // recupero il nome della chat dalla riga su cui ho cliccato ossia il testo del suo h1 relativo
 var nome_chat = $(this).find('h1').text();
 // stampo il testo nel h1 della riga cliccata
 console.log(nome_chat);
+// recupero anche l'immagine della chat su cui i cliccato e la copio cosi da poterla incollare senza taglaire
+immagine_profilo = $(this).find('img').clone();
 // recupero la chat,ossia lista messaggi, relativa a tale riga cliccata
 $('.lista-messaggi[data-chat-name="' + nome_chat + '"]').addClass('active');
+// recupero l'header-right relativa a tale riga cliccata
+// recupero l immagine in corso
+var immaginevecchia = $('.header-right').find('img');
+// sostituisco il titolo vecchio con quello della immagine relativa
+var titolovecchio = $('.header-right').find('h3').text(nome_chat);
+// cancello tale immagine
+immaginevecchia.remove();
+// inserisco quella nuova in base alla riga cliccata
+$('.header-right').append(immagine_profilo).addClass('active');
 });
+
 
 // se clicco sull messaggio che ho inviato mi apre il suo dropdown
 $('.chat').on('click','.messaggio-inviato',function() {

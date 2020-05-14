@@ -231,11 +231,11 @@ h3{
     padding-bottom:5px;
 }
 
-.lista-messaggi{
+.lista-messaggi, .header-right{
     display: none;
 }
 
-.lista-messaggi.active, .message-options-panel.active{
+.lista-messaggi.active, .message-options-panel.active, .header-right.active{
     display: block;
 }
 
