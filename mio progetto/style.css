@@ -194,7 +194,7 @@ h3{
 }
 
 
-.messaggio-inviato{
+.messaggio.inviato{
     background-color: lightgreen;
     /* align-self: flex-end; */
     padding: 15px;
@@ -212,7 +212,7 @@ h3{
     overflow-wrap: anywhere;
 }
 
-.messaggio-ricevuto{
+.messaggio.ricevuto{
     float:left;
     background-color: white;
     padding: 15px;

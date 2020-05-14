@@ -58,7 +58,7 @@ $('#input-messaggi').keypress(function(event){
         // console.log(messaggio_utente);
         // verifico che il mesaggio non sia vuoto
         if (messaggio_utente != ('')) {
-            var ilMioNuovoMessaggio = $('.template .messaggio-inviato').clone();
+            var ilMioNuovoMessaggio = $('.template .messaggio').clone().addClass('inviato');
             ilMioNuovoMessaggio.find('li').text(messaggio_utente);
             // metto il selettore con l active se no mi mette il messaggio su tutte le chat anche quelle a cui non starei mandando un messaggio
             $('.lista-messaggi.active').append(ilMioNuovoMessaggio);
@@ -69,7 +69,8 @@ $('#input-messaggi').keypress(function(event){
             // var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
             setTimeout(function(){
             // metto un messaggio di risposta ok ad ogni messaggio dell'utente che apparirà dopo un secondo
-            var pcmessaggio = $('.lista-messaggi.active').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>'); }, 1000);
+            var pcmessaggio = $('.template .messaggio').clone().addClass('ricevuto');
+            $('.lista-messaggi.active').append(pcmessaggio).find('li nuovo-messaggio').text('ok'); }, 1000);
             // pcmessaggio.setTimeout("funzione()", tempo_in_ms);
         }// chiudo l'if controllo input diverso da stringa vuota
     }// chiudo l'if controllo input inserito da tastiera tasto 13 ossia invio
@@ -139,7 +140,7 @@ $('.header-right').prepend(immagine_profilo).addClass('active');
 
 
 // se clicco sull messaggio che ho inviato mi apre il suo dropdown
-$('.chat').on('click','.messaggio-inviato',function() {
+$('.chat').on('click','.messaggio',function() {
 // alert('ciao');// non funziona l alert
 // inisializzo il nuovo messaggio in una variabile che mi servirà per cancellarlo
 var nuovomessaggio = $(this);
