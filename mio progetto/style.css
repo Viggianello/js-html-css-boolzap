@@ -89,6 +89,7 @@ img{
 .liste-chat{
     height: 80%;
     /* height: 83%; */
+    overflow-y: scroll;
 }
 
 .riga{
@@ -149,7 +150,7 @@ img{
     width: calc(100% - 66.5px);
     height: 96%;
     border: 0;
-    background-color: f6f6f6;
+    background-color: #f6f6f6;
 }
 
 .position{
@@ -170,35 +171,60 @@ img{
     font-size: 13px;
 }
 
-.riga p{
-    float:right;
-    padding-right: 138px;
-    padding-top: 25px;
-    font-size: 10px;
-    color: gray;
-}
-
-.riga h1{
-    position: absolute;
-    padding-left: 47px;
-    font-size: 15px;
-}
-
 .header-left h1{
     position: absolute;
     font-size: 30px;
     left: 70px;
     bottom: 15px;
 }
+/* layout riga in liste chat */
+.riga ::after{
+    content: '';
+    clear: both;
+    display: table;
+}
 
-.liste-chat .orario{
+.img-container, .testo-riga, .orario-riga{
+    float: left;
+    height: 100%;
+}
+
+.img-container,.orario-riga{
+    width: 10%;
+}
+
+.testo-riga{
+    width: 75%;
+    padding-left: 15px;
+}
+
+.testo-riga p, .orario-riga{
+    font-size: 10px;
+    color: gray;
+}
+
+/* .riga p{
+    float:right;
+    padding-right: 138px;
+    padding-top: 25px;
+    font-size: 10px;
+    color: gray;
+} */
+
+/* .riga h1{
+    position: absolute;
+    padding-left: 47px;
+    font-size: 15px;
+} */
+
+/* .liste-chat .orario{
     position: absolute;
     font-size: 10px;
     color: gray;
     padding-top: 13px;
     left: 275px;
-}
-
+} */
+/* fine layout riga in liste chat */
 h3{
     float:left;
     padding-top: 16px;

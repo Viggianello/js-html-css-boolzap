@@ -3,9 +3,9 @@
 //     $(this).append('<p>Non poteva essere altrimenti</p>')
 // })
 // metodo 2
-$('.riga').append('<p>Non poteva essere altrimenti</p>')
+$('.riga .testo-riga').append('<p>Non poteva essere altrimenti</p>')
 
-$('.riga').append('<span class="orario">17.55</span>')
+$('.riga .orario-riga').append('<span class="orario">17.55</span>')
 // var ok = false;
 // Intercetto il clicco sul microfono
 // $('.icone-container-right').click(function() {
