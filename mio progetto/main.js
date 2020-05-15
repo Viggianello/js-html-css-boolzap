@@ -52,62 +52,16 @@ $('#input-messaggi').keypress(function(event){
     // codice tasto invio
     if(keycode == '13'){
         // alert('You pressed a "enter" key in somewhere');
-        // leggo il valore destritto inserito nel input
-        var messaggio_utente = $('#input-messaggi').val();
-        // stampo in console
-        // console.log(messaggio_utente);
-        // verifico che il mesaggio non sia vuoto
-        if (messaggio_utente != ('')) {
-            var ilMioNuovoMessaggio = $('.template .messaggio').clone().addClass('inviato');
-            ilMioNuovoMessaggio.find('li').text(messaggio_utente);
-            // metto il selettore con l active se no mi mette il messaggio su tutte le chat anche quelle a cui non starei mandando un messaggio
-            $('.lista-messaggi.active').append(ilMioNuovoMessaggio);
-            // resetto l'input
-            $('#input-messaggi').val('');
-            // rimetto il messaggio di default
-            $(this).attr('placeholder', 'Scrivi un messaggio');
-            // var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
-            setTimeout(function(){
-                // metto un messaggio di risposta ok ad ogni messaggio dell'utente che apparirà dopo un secondo
-                // copio il template e gli aggiungo la classe ricevuto per farlo bianco e a sx
-                var pcmessaggio = $('.template .messaggio').clone().addClass('ricevuto');
-                // cambio il suo testo
-                pcmessaggio.find('li.nuovo-messaggio').replaceWith('<li class="nuovo-messaggio">' + 'ok' + '</li>');
-                // lo metto in pagina
-                $('.lista-messaggi.active').append(pcmessaggio)
-            }, 1000);
-        }// chiudo l'if controllo input diverso da stringa vuota
+        InviaRiceviMessagio() ;
     }// chiudo l'if controllo input inserito da tastiera tasto 13 ossia invio
 });// chiudo il keypress dell'input
 
 $(document).on('click','.icone-container-right',  function() {
-    console.log('funziona');
-// leggo il valore destritto inserito nel input
-var messaggio_utente = $('#input-messaggi').val();
-// stampo in console
-// console.log(messaggio_utente);
-// verifico che il mesaggio non sia vuoto
-if (messaggio_utente != ('')) {
-    var ilMioNuovoMessaggio = $('.template .messaggio').clone().addClass('inviato');
-    ilMioNuovoMessaggio.find('li').text(messaggio_utente);
-    // metto il selettore con l active se no mi mette il messaggio su tutte le chat anche quelle a cui non starei mandando un messaggio
-    $('.lista-messaggi.active').append(ilMioNuovoMessaggio);
-    // resetto l'input
-    $('#input-messaggi').val('');
-    // rimetto il messaggio di default
-    $(this).attr('placeholder', 'Scrivi un messaggio');
-    // var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
-    setTimeout(function(){
-    // metto un messaggio di risposta ok ad ogni messaggio dell'utente che apparirà dopo un secondo
-    // copio il template e gli aggiungo la classe ricevuto per farlo bianco e a sx
-    var pcmessaggio = $('.template .messaggio').clone().addClass('ricevuto');
-    // cambio il suo testo
-    pcmessaggio.find('li.nuovo-messaggio').replaceWith('<li class="nuovo-messaggio">' + 'ok' + '</li>');
-    // lo metto in pagina
-    $('.lista-messaggi.active').append(pcmessaggio)}, 1000);
-}// chiusura if stringa vuota
+    // console.log('funziona');
+    InviaRiceviMessagio();
 }// chiusura funzione del click
 );// chiusura click
+
 // intercetto il focus nell'input del messaggio
 $('#input-messaggi').focus(function() {
     // verifico che il focus funzioni
@@ -167,45 +121,73 @@ $('.left .input-container').keyup(function(event){
 
 // intercetto il click sulle righe della chat di sx per associare la chat a dx
 $('.riga').click(function() {
-// tolgo la classe active a qualsiasi lista messaggi
-$('.lista-messaggi').removeClass('active');
-// recupero il nome della chat dalla riga su cui ho cliccato ossia il testo del suo h1 relativo
-var nome_chat = $(this).find('h1').text();
-// stampo il testo nel h1 della riga cliccata
-console.log(nome_chat);
-// recupero anche l'immagine della chat su cui i cliccato e la copio cosi da poterla incollare senza taglaire
-immagine_profilo = $(this).find('img').clone();
-// recupero la chat,ossia lista messaggi, relativa a tale riga cliccata
-$('.lista-messaggi[data-chat-name="' + nome_chat + '"]').addClass('active');
-// recupero l'header-right relativa a tale riga cliccata
-// recupero l immagine in corso
-var immaginevecchia = $('.header-right').find('img');
-// sostituisco il titolo vecchio con quello della immagine relativa
-var titolovecchio = $('.header-right').find('h3').text(nome_chat);
-// cancello tale immagine
-immaginevecchia.remove();
-// inserisco quella nuova in base alla riga cliccata
-$('.header-right').prepend(immagine_profilo);
+    // tolgo la classe active a qualsiasi lista messaggi
+    $('.lista-messaggi').removeClass('active');
+    // recupero il nome della chat dalla riga su cui ho cliccato ossia il testo del suo h1 relativo
+    var nome_chat = $(this).find('h1').text();
+    // stampo il testo nel h1 della riga cliccata
+    console.log(nome_chat);
+    // recupero anche l'immagine della chat su cui i cliccato e la copio cosi da poterla incollare senza taglaire
+    immagine_profilo = $(this).find('img').clone();
+    // recupero la chat,ossia lista messaggi, relativa a tale riga cliccata
+    $('.lista-messaggi[data-chat-name="' + nome_chat + '"]').addClass('active');
+    // recupero l'header-right relativa a tale riga cliccata
+    // recupero l immagine in corso
+    var immaginevecchia = $('.header-right').find('img');
+    // sostituisco il titolo vecchio con quello della immagine relativa
+    var titolovecchio = $('.header-right').find('h3').text(nome_chat);
+    // cancello tale immagine
+    immaginevecchia.remove();
+    // inserisco quella nuova in base alla riga cliccata
+    $('.header-right').prepend(immagine_profilo);
 });
 
 
 // se clicco sull messaggio che ho inviato o su quello generato dal pc mi apre il suo dropdown
 $('.chat').on('click','.messaggio',function() {
-// alert('ciao');// non funziona l alert
-// inizializzo il nuovo messaggio in una variabile che mi servirà per cancellarlo
-var nuovomessaggio = $(this);
-// do la classe active al dropdown ,in modo da vederlo, o levo la tale classe se l ha gia in modo da nasconderlo
-$(this).find('.message-options-panel').toggleClass('active');
-// se clicco su messagge-destroy cancello il messaggio_utente
-$(this).find('.message-destroy').click(function() {
-// nascondo il messaggio sul display anche se cosi rimarrebbe nel html
-// $(nuovomessaggio).hide();
-// rimuove il messaggio
-$(nuovomessaggio).remove();
-});//chiusura click per cancellare il messaggio
+    // alert('ciao');// non funziona l alert
+    // inizializzo il nuovo messaggio in una variabile che mi servirà per cancellarlo
+    var nuovomessaggio = $(this);
+    // do la classe active al dropdown ,in modo da vederlo, o levo la tale classe se l ha gia in modo da nasconderlo
+    $(this).find('.message-options-panel').toggleClass('active');
+    // se clicco su messagge-destroy cancello il messaggio_utente
+    $(this).find('.message-destroy').click(function() {
+        // nascondo il messaggio sul display anche se cosi rimarrebbe nel html
+        // $(nuovomessaggio).hide();
+        // rimuove il messaggio
+        $(nuovomessaggio).remove();
+    });//chiusura click per cancellare il messaggio
 });//chiusura click per aprire il dropdown
 
 // se esco col mouse dal dropdown, dopo esserci entrato, mi chiude il suddetto
 $('.chat').on('mouseleave','.message-options-panel',function() {
   $( this ).removeClass('active');
 });
+
+function InviaRiceviMessagio() {
+    // leggo il valore destritto inserito nel input
+    var messaggio_utente = $('#input-messaggi').val();
+    // stampo in console
+    // console.log(messaggio_utente);
+    // verifico che il mesaggio non sia vuoto
+    if (messaggio_utente != ('')) {
+        var ilMioNuovoMessaggio = $('.template .messaggio').clone().addClass('inviato');
+        ilMioNuovoMessaggio.find('li').text(messaggio_utente);
+        // metto il selettore con l active se no mi mette il messaggio su tutte le chat anche quelle a cui non starei mandando un messaggio
+        $('.lista-messaggi.active').append(ilMioNuovoMessaggio);
+        // resetto l'input
+        $('#input-messaggi').val('');
+        // rimetto il messaggio di default
+        $(this).attr('placeholder', 'Scrivi un messaggio');
+        // var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
+        setTimeout(function(){
+            // metto un messaggio di risposta ok ad ogni messaggio dell'utente che apparirà dopo un secondo
+            // copio il template e gli aggiungo la classe ricevuto per farlo bianco e a sx
+            var pcmessaggio = $('.template .messaggio').clone().addClass('ricevuto');
+            // cambio il suo testo
+            pcmessaggio.find('li.nuovo-messaggio').replaceWith('<li class="nuovo-messaggio">' + 'ok' + '</li>');
+            // lo metto in pagina
+            $('.lista-messaggi.active').append(pcmessaggio)
+        }, 1000);
+    }// chiudo l'if controllo input diverso da stringa vuota
+}// chiudo la funzione
