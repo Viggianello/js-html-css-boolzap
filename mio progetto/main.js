@@ -4,8 +4,9 @@
 // })
 // metodo 2
 $('.riga .testo-riga').append('<p>Non poteva essere altrimenti</p>')
-
-$('.riga .orario-riga').append('<span class="orario">17.55</span>')
+var d = new Date();
+var orario = d.getHours() + ':' + d.getMinutes();
+$('.riga .orario-riga').append('<span class="orario"> ' + orario + '</span>')
 // var ok = false;
 // Intercetto il clicco sul microfono
 // $('.icone-container-right').click(function() {
@@ -206,9 +207,11 @@ function InviaRiceviMessaggioLibreria() {
     // verifico che il mesaggio non sia vuoto
     if (messaggio_utente != ('')) {
         var ilMioNuovoMessaggio = {
-            nuovomessaggio: messaggio_utente
+            // cambio il suo testo
+            nuovomessaggio: messaggio_utente,
+            // aggiungo la classe
+            classe: 'inviato'
         };
-        $('.messaggio').addClass('inviato');
         var html_finale = template_function(ilMioNuovoMessaggio);
         // metto il selettore con l active se no mi mette il messaggio su tutte le chat anche quelle a cui non starei mandando un messaggio
         $('.lista-messaggi.active').append(html_finale);
@@ -221,11 +224,16 @@ function InviaRiceviMessaggioLibreria() {
         setTimeout(function(){
             // metto un messaggio di risposta ok ad ogni messaggio dell'utente che apparirà dopo un secondo
             // copio il template e gli aggiungo la classe ricevuto per farlo bianco e a sx
-            var pcmessaggio = $('.messaggio').clone().addClass('ricevuto');
-            // cambio il suo testo
-            pcmessaggio.find('li.nuovo-messaggio').replaceWith('<li class="nuovo-messaggio">' + 'ok' + '</li>');
+            var pcmessaggio = {
+                // cambio il suo testo
+                nuovomessaggio: 'ok',
+                // aggiungo la classe
+                classe: 'ricevuto'
+            };
+            var html_finale2 = template_function(pcmessaggio);
             // lo metto in pagina
-            $('.lista-messaggi.active').append(pcmessaggio)
+            $('.lista-messaggi.active').append(html_finale2);
+            console.log(html_finale);
         }, 1000);
     }// chiudo l'if controllo input diverso da stringa vuota
 }// chiudo la funzione
