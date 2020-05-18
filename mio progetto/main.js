@@ -52,13 +52,15 @@ $('#input-messaggi').keypress(function(event){
     // codice tasto invio
     if(keycode == '13'){
         // alert('You pressed a "enter" key in somewhere');
-        InviaRiceviMessagio() ;
+        // InviaRiceviMessagio() ;
+        InviaRiceviMessaggioLibreria()
     }// chiudo l'if controllo input inserito da tastiera tasto 13 ossia invio
 });// chiudo il keypress dell'input
 
 $(document).on('click','.icone-container-right',  function() {
     // console.log('funziona');
-    InviaRiceviMessagio();
+    // InviaRiceviMessagio();
+    InviaRiceviMessaggioLibreria();
 }// chiusura funzione del click
 );// chiusura click
 
@@ -164,17 +166,53 @@ $('.chat').on('mouseleave','.message-options-panel',function() {
   $( this ).removeClass('active');
 });
 
-function InviaRiceviMessagio() {
+// function InviaRiceviMessagio() {
+//     // leggo il valore destritto inserito nel input
+//     var messaggio_utente = $('#input-messaggi').val();
+//     // stampo in console
+//     // console.log(messaggio_utente);
+//     // verifico che il mesaggio non sia vuoto
+//     if (messaggio_utente != ('')) {
+//         var ilMioNuovoMessaggio = $('.template .messaggio').clone().addClass('inviato');
+//         ilMioNuovoMessaggio.find('li').text(messaggio_utente);
+//         // metto il selettore con l active se no mi mette il messaggio su tutte le chat anche quelle a cui non starei mandando un messaggio
+//         $('.lista-messaggi.active').append(ilMioNuovoMessaggio);
+//         // resetto l'input
+//         $('#input-messaggi').val('');
+//         // rimetto il messaggio di default
+//         $(this).attr('placeholder', 'Scrivi un messaggio');
+//         // var pcmessaggio = $('.lista-messaggi').append('<li class="messaggio-ricevuto">' + 'ok' + '</li>');
+//         setTimeout(function(){
+//             // metto un messaggio di risposta ok ad ogni messaggio dell'utente che apparirà dopo un secondo
+//             // copio il template e gli aggiungo la classe ricevuto per farlo bianco e a sx
+//             var pcmessaggio = $('.template .messaggio').clone().addClass('ricevuto');
+//             // cambio il suo testo
+//             pcmessaggio.find('li.nuovo-messaggio').replaceWith('<li class="nuovo-messaggio">' + 'ok' + '</li>');
+//             // lo metto in pagina
+//             $('.lista-messaggi.active').append(pcmessaggio)
+//         }, 1000);
+//     }// chiudo l'if controllo input diverso da stringa vuota
+// }// chiudo la funzione
+
+// inserisco tramite la libreria handlebars i messaggi inviati dall utente
+var libreriamessaggio = $('#entry-template').html();
+var template_function = Handlebars.compile(libreriamessaggio);
+
+function InviaRiceviMessaggioLibreria() {
     // leggo il valore destritto inserito nel input
     var messaggio_utente = $('#input-messaggi').val();
     // stampo in console
     // console.log(messaggio_utente);
     // verifico che il mesaggio non sia vuoto
     if (messaggio_utente != ('')) {
-        var ilMioNuovoMessaggio = $('.template .messaggio').clone().addClass('inviato');
-        ilMioNuovoMessaggio.find('li').text(messaggio_utente);
+        var ilMioNuovoMessaggio = {
+            nuovomessaggio: messaggio_utente
+        };
+        $('.messaggio').addClass('inviato');
+        var html_finale = template_function(ilMioNuovoMessaggio);
         // metto il selettore con l active se no mi mette il messaggio su tutte le chat anche quelle a cui non starei mandando un messaggio
-        $('.lista-messaggi.active').append(ilMioNuovoMessaggio);
+        $('.lista-messaggi.active').append(html_finale);
+        console.log(html_finale);
         // resetto l'input
         $('#input-messaggi').val('');
         // rimetto il messaggio di default
@@ -183,7 +221,7 @@ function InviaRiceviMessagio() {
         setTimeout(function(){
             // metto un messaggio di risposta ok ad ogni messaggio dell'utente che apparirà dopo un secondo
             // copio il template e gli aggiungo la classe ricevuto per farlo bianco e a sx
-            var pcmessaggio = $('.template .messaggio').clone().addClass('ricevuto');
+            var pcmessaggio = $('.messaggio').clone().addClass('ricevuto');
             // cambio il suo testo
             pcmessaggio.find('li.nuovo-messaggio').replaceWith('<li class="nuovo-messaggio">' + 'ok' + '</li>');
             // lo metto in pagina
